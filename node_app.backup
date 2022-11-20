@@ -1,0 +1,454 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.1
+-- Dumped by pg_dump version 15.1
+
+-- Started on 2022-11-20 17:29:03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 217 (class 1259 OID 16590)
+-- Name: follower; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.follower (
+    id integer NOT NULL,
+    following_user_id integer NOT NULL,
+    followed_user_id integer NOT NULL
+);
+
+
+ALTER TABLE public.follower OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 16589)
+-- Name: follower_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.follower_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.follower_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3337 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: follower_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.follower_id_seq OWNED BY public.follower.id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 16581)
+-- Name: person; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.person (
+    id integer NOT NULL,
+    first_name character varying(255) NOT NULL,
+    gender character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.person OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 16580)
+-- Name: person_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.person_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.person_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3338 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: person_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.person_id_seq OWNED BY public.person.id;
+
+
+--
+-- TOC entry 3179 (class 2604 OID 16593)
+-- Name: follower id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.follower ALTER COLUMN id SET DEFAULT nextval('public.follower_id_seq'::regclass);
+
+
+--
+-- TOC entry 3178 (class 2604 OID 16584)
+-- Name: person id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.person ALTER COLUMN id SET DEFAULT nextval('public.person_id_seq'::regclass);
+
+
+--
+-- TOC entry 3331 (class 0 OID 16590)
+-- Dependencies: 217
+-- Data for Name: follower; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (1, 7, 1);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (2, 7, 2);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (3, 7, 3);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (4, 7, 4);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (5, 7, 5);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (6, 7, 6);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (7, 7, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (8, 7, 8);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (9, 7, 9);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (10, 7, 10);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (11, 7, 11);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (12, 7, 12);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (13, 3, 4);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (14, 3, 5);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (15, 3, 6);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (16, 3, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (17, 3, 8);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (18, 3, 9);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (19, 3, 10);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (20, 3, 11);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (21, 8, 3);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (22, 3, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (23, 3, 22);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (24, 3, 44);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (25, 3, 37);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (26, 3, 21);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (27, 3, 86);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (28, 3, 24);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (29, 3, 11);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (30, 15, 4);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (31, 15, 5);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (32, 15, 6);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (33, 15, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (34, 15, 8);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (35, 15, 9);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (36, 15, 10);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (37, 15, 11);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (38, 18, 4);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (39, 18, 5);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (40, 18, 6);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (41, 18, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (42, 18, 8);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (43, 18, 9);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (44, 18, 10);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (45, 18, 76);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (46, 18, 77);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (47, 18, 78);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (48, 18, 81);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (49, 18, 104);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (50, 18, 121);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (51, 18, 122);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (52, 18, 165);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (53, 65, 4);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (54, 65, 5);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (55, 65, 6);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (56, 65, 7);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (57, 65, 8);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (58, 65, 9);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (59, 65, 10);
+INSERT INTO public.follower (id, following_user_id, followed_user_id) VALUES (60, 65, 11);
+
+
+--
+-- TOC entry 3329 (class 0 OID 16581)
+-- Dependencies: 215
+-- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.person (id, first_name, gender) VALUES (1, 'Anton', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (2, 'Ofelia', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (3, 'Boycey', 'Genderfluid');
+INSERT INTO public.person (id, first_name, gender) VALUES (4, 'Ashien', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (5, 'Bailie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (6, 'Geoff', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (7, 'Celestyn', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (8, 'Tommy', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (9, 'Riccardo', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (10, 'Rurik', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (11, 'Doralyn', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (12, 'Federica', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (13, 'Garv', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (14, 'Oswald', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (15, 'Cordelia', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (16, 'Sigfrid', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (17, 'Irma', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (18, 'Barn', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (19, 'Yanaton', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (20, 'Johnette', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (21, 'Raye', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (22, 'Nelson', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (23, 'Reyna', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (24, 'Oswell', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (25, 'Granville', 'Agender');
+INSERT INTO public.person (id, first_name, gender) VALUES (26, 'Brantley', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (27, 'Ericka', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (28, 'Glenda', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (29, 'Lea', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (30, 'Deva', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (31, 'Dani', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (32, 'Kenyon', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (33, 'Sophie', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (34, 'Kay', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (35, 'Byrom', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (36, 'Barbabra', 'Agender');
+INSERT INTO public.person (id, first_name, gender) VALUES (37, 'Giovanna', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (38, 'Bernelle', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (39, 'Lewes', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (40, 'Gordie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (41, 'Gabbi', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (42, 'Veriee', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (43, 'Corbett', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (44, 'Joye', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (45, 'Melisenda', 'Non-binary');
+INSERT INTO public.person (id, first_name, gender) VALUES (46, 'Nyssa', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (47, 'Caty', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (48, 'Barnabas', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (49, 'Geralda', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (50, 'Decca', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (51, 'Oates', 'Genderfluid');
+INSERT INTO public.person (id, first_name, gender) VALUES (52, 'Lyssa', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (53, 'Foster', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (54, 'Shalom', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (55, 'Donall', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (56, 'Roberta', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (57, 'Marybeth', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (58, 'Ritchie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (59, 'Husain', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (60, 'Zelda', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (61, 'Jasmin', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (62, 'Dicky', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (63, 'Rock', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (64, 'Maximilien', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (65, 'Fara', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (66, 'Ariana', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (67, 'Cherin', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (68, 'Tann', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (69, 'Kristian', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (70, 'Ertha', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (71, 'Theresina', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (72, 'Marlyn', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (73, 'Shell', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (74, 'Abel', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (75, 'Christian', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (76, 'Brandtr', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (77, 'Abramo', 'Agender');
+INSERT INTO public.person (id, first_name, gender) VALUES (78, 'Judye', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (79, 'Saundra', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (80, 'Berkie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (81, 'Mace', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (82, 'Lira', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (83, 'Brion', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (84, 'Park', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (85, 'Fanya', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (86, 'Butch', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (87, 'Bonnibelle', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (88, 'Chadd', 'Genderqueer');
+INSERT INTO public.person (id, first_name, gender) VALUES (89, 'Marlo', 'Genderfluid');
+INSERT INTO public.person (id, first_name, gender) VALUES (90, 'Domenic', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (91, 'Karney', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (92, 'Anne-corinne', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (93, 'Niko', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (94, 'Wernher', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (95, 'Obed', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (96, 'Delinda', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (97, 'Charita', 'Non-binary');
+INSERT INTO public.person (id, first_name, gender) VALUES (98, 'Clareta', 'Genderfluid');
+INSERT INTO public.person (id, first_name, gender) VALUES (99, 'Mariam', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (100, 'Monica', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (101, 'Pierson', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (102, 'Sukey', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (103, 'Cristina', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (104, 'Amye', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (105, 'Amata', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (106, 'Arlen', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (107, 'Vite', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (108, 'Selena', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (109, 'Wini', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (110, 'Hy', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (111, 'Udall', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (112, 'Prudy', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (113, 'Ivan', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (114, 'Aldus', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (115, 'Rob', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (116, 'Alysa', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (117, 'Marcus', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (118, 'Bennett', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (119, 'Marty', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (120, 'Chane', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (121, 'Bryant', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (122, 'Linnet', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (123, 'Elvin', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (124, 'Kurtis', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (125, 'Doyle', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (126, 'Natalya', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (127, 'Julius', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (128, 'Silvie', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (129, 'Darnell', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (130, 'Wini', 'Genderfluid');
+INSERT INTO public.person (id, first_name, gender) VALUES (131, 'Quintus', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (132, 'Padget', 'Non-binary');
+INSERT INTO public.person (id, first_name, gender) VALUES (133, 'Herby', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (134, 'Kalinda', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (135, 'Jone', 'Agender');
+INSERT INTO public.person (id, first_name, gender) VALUES (136, 'Roobbie', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (137, 'Biddy', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (138, 'Dulsea', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (139, 'Archy', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (140, 'Darrelle', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (141, 'Rufus', 'Non-binary');
+INSERT INTO public.person (id, first_name, gender) VALUES (142, 'Rikki', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (143, 'Reg', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (144, 'Jamey', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (145, 'Joela', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (146, 'Helli', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (147, 'Ondrea', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (148, 'Carole', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (149, 'Erhard', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (150, 'Jilli', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (151, 'Malva', 'Polygender');
+INSERT INTO public.person (id, first_name, gender) VALUES (152, 'Brenden', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (153, 'Nicolas', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (154, 'Ibby', 'Genderqueer');
+INSERT INTO public.person (id, first_name, gender) VALUES (155, 'Jerrold', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (156, 'Larisa', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (157, 'Dewain', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (158, 'Mendie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (159, 'Toma', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (160, 'Blake', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (161, 'David', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (162, 'Orson', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (163, 'Vyky', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (164, 'Rriocard', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (165, 'Alix', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (166, 'Joeann', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (167, 'Patience', 'Non-binary');
+INSERT INTO public.person (id, first_name, gender) VALUES (168, 'Izaak', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (169, 'Salomi', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (170, 'Nancee', 'Polygender');
+INSERT INTO public.person (id, first_name, gender) VALUES (171, 'Cordelia', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (172, 'Augustus', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (173, 'Ichabod', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (174, 'Freemon', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (175, 'Buiron', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (176, 'Tobi', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (177, 'Royall', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (178, 'Bogart', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (179, 'Reena', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (180, 'Welby', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (181, 'Caesar', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (182, 'Fleming', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (183, 'Avril', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (184, 'Byram', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (185, 'Ab', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (186, 'Gideon', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (187, 'Tracie', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (188, 'Cathe', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (189, 'Kati', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (190, 'Durward', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (191, 'Donaugh', 'Polygender');
+INSERT INTO public.person (id, first_name, gender) VALUES (192, 'Derick', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (193, 'Hallsy', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (194, 'Lyndsie', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (195, 'Guillaume', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (196, 'Celina', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (197, 'Domeniga', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (198, 'Dunstan', 'Male');
+INSERT INTO public.person (id, first_name, gender) VALUES (199, 'Ashia', 'Female');
+INSERT INTO public.person (id, first_name, gender) VALUES (200, 'Carlee', 'Female');
+
+
+--
+-- TOC entry 3339 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: follower_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.follower_id_seq', 60, true);
+
+
+--
+-- TOC entry 3340 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.person_id_seq', 1, false);
+
+
+--
+-- TOC entry 3183 (class 2606 OID 16595)
+-- Name: follower follower_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.follower
+    ADD CONSTRAINT follower_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3181 (class 2606 OID 16588)
+-- Name: person person_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.person
+    ADD CONSTRAINT person_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3184 (class 2606 OID 16601)
+-- Name: follower follower_followed_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.follower
+    ADD CONSTRAINT follower_followed_user_id_fkey FOREIGN KEY (followed_user_id) REFERENCES public.person(id);
+
+
+--
+-- TOC entry 3185 (class 2606 OID 16596)
+-- Name: follower follower_following_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.follower
+    ADD CONSTRAINT follower_following_user_id_fkey FOREIGN KEY (following_user_id) REFERENCES public.person(id);
+
+
+-- Completed on 2022-11-20 17:29:03
+
+--
+-- PostgreSQL database dump complete
+--
+
